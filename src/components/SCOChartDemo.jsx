@@ -146,15 +146,17 @@ function SCOChartDemo() {
         let dateLabel = params[0].axisValue;
         
         switch(filterType) {
-          case 'week':
+          case 'week': {
             const [year, week] = dateLabel.split('-W');
             dateLabel = `Week ${week}, ${year}`;
             break;
-          case 'month':
+          }
+          case 'month': {
             const [y, m] = dateLabel.split('-');
             const monthDate = new Date(y, parseInt(m) - 1);
             dateLabel = monthDate.toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
             break;
+          }
           case 'quarter':
             dateLabel = dateLabel.replace('-', ' ');
             break;
